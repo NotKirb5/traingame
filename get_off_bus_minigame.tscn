@@ -124,8 +124,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_d21ai")
 }
 
-[connection signal="buttonPress" from="Button" to="TimerToDoorOpen" method="stop"]
-[connection signal="timeout" from="Button/Timer" to="Button" method="_make_thankable"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="TimerToDoorOpen" to="." method="_on_timer_to_door_open_timeout"]
 [connection signal="timeout" from="TimerToDoorOpen" to="Button" method="_on_timeout"]
 [connection signal="timeout" from="TimerToDoorOpen" to="TimerToDoorOpen/MissedText" method="set_visible" binds= [true]]
 [connection signal="stop" from="Bus" to="TimerToDoorOpen" method="_on_stop"]
