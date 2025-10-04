@@ -11,12 +11,8 @@ config_version=5
 [application]
 
 config/name="traingame"
-<<<<<<< HEAD
-config/features=PackedStringArray("4.3", "GL Compatibility")
-=======
 run/main_scene="uid://dh7phuab2lhxn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
->>>>>>> 659dc484c4412c0512ad7e230a9fa17d1d4c38db
 config/icon="res://icon.svg"
 
 [autoload]
