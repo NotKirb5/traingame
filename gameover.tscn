@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://byy41cxr3b2qa"]
+
+[ext_resource type="Script" uid="uid://nds751by22g3" path="res://gameover.gd" id="1_4nh4k"]
+
+[node name="gameover" type="Node2D"]
+script = ExtResource("1_4nh4k")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 854.0
+offset_top = 379.0
+offset_right = 1125.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="reason" type="Label" parent="."]
+offset_left = 616.0
+offset_top = 542.0
+offset_right = 1355.0
+offset_bottom = 611.0
+theme_override_font_sizes/font_size = 50
+text = "You Ran Over a Familly of Four"
+horizontal_alignment = 1
