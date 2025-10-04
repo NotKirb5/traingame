@@ -43,7 +43,9 @@ func newgame():
 func endgame(reason:String)->void:
 	get_tree().change_scene_to_file("res://gameover.tscn")
 	await get_tree().scene_changed
-	get_tree().get_first_node_in_group('hud').queue_free()
+	var hud = get_tree().get_first_node_in_group('hud')
+	if hud != null:
+		hud.queue_free()
 	get_tree().current_scene.setreason(reason)
 
 

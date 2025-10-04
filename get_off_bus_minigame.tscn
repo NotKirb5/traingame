@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://b6sjienfug7r"]
 
-[ext_resource type="Script" uid="uid://c1aqmqlfaqv2x" path="res://get_off_bus.gd" id="1_u8ire"]
+[ext_resource type="Script" uid="uid://bo7rdnbe33rum" path="res://get_off_bus_minigame.gd" id="1_u8ire"]
 [ext_resource type="Script" uid="uid://ewoigt3f7kqv" path="res://doortimer.gd" id="2_l08dc"]
 [ext_resource type="Texture2D" uid="uid://ci5ef1cau4niu" path="res://icon.svg" id="3_d0q14"]
 [ext_resource type="Texture2D" uid="uid://cu4ry7pb31pnn" path="res://assets/pink.png" id="4_l08dc"]
@@ -37,9 +37,6 @@ tracks/0/keys = {
 "values": [Vector2(960, 500), Vector2(960, 750)]
 }
 
-[sub_resource type="Animation" id="Animation_d0q14"]
-resource_name = "thanks"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d21ai"]
 _data = {
 &"RESET": SubResource("Animation_kdubu"),
@@ -48,8 +45,9 @@ _data = {
 }
 
 [node name="get_off_bus_minigame" type="Node2D"]
+script = ExtResource("1_u8ire")
 
-[node name="Button" type="Button" parent="." node_paths=PackedStringArray("node", "getOffBusAnim", "thanksBubble")]
+[node name="Button" type="Button" parent="."]
 offset_left = 1311.0
 offset_top = 143.0
 offset_right = 1782.0
@@ -123,10 +121,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_d21ai")
 }
 
-[connection signal="buttonPress" from="Button" to="TimerToDoorOpen" method="stop"]
-[connection signal="timeout" from="Button/Timer" to="Button" method="_make_thankable"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="TimerToDoorOpen" to="." method="_on_timer_to_door_open_timeout"]
 [connection signal="timeout" from="TimerToDoorOpen" to="Button" method="_on_timeout"]
 [connection signal="timeout" from="TimerToDoorOpen" to="TimerToDoorOpen/MissedText" method="set_visible" binds= [true]]
 [connection signal="stop" from="Bus" to="TimerToDoorOpen" method="_on_stop"]
+[connection signal="timeout" from="TimerToStop" to="." method="_on_timer_to_stop_timeout"]
 [connection signal="timeout" from="TimerToStop" to="Button" method="_on_stop"]
 [connection signal="timeout" from="TimerToStop" to="Bus" method="_stop"]
