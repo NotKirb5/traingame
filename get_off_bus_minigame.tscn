@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6sjienfug7r"]
 
-[ext_resource type="Script" uid="uid://c1aqmqlfaqv2x" path="res://get_off_bus.gd" id="1_c3wlw"]
-[ext_resource type="Texture2D" uid="uid://ci5ef1cau4niu" path="res://icon.svg" id="2_0e48y"]
-[ext_resource type="Script" uid="uid://ewoigt3f7kqv" path="res://doortimer.gd" id="2_0hol4"]
-[ext_resource type="Script" uid="uid://cfpf2m0i0ki58" path="res://bus.gd" id="4_0hol4"]
-[ext_resource type="Texture2D" uid="uid://dhshflediw7je" path="res://assets/blue.png" id="4_q6r6c"]
+[ext_resource type="Script" uid="uid://c1aqmqlfaqv2x" path="res://get_off_bus.gd" id="1_u8ire"]
+[ext_resource type="Script" uid="uid://ewoigt3f7kqv" path="res://doortimer.gd" id="2_l08dc"]
+[ext_resource type="Texture2D" uid="uid://ci5ef1cau4niu" path="res://icon.svg" id="3_d0q14"]
+[ext_resource type="Texture2D" uid="uid://dhshflediw7je" path="res://assets/blue.png" id="4_pqf1f"]
+[ext_resource type="Script" uid="uid://cfpf2m0i0ki58" path="res://bus.gd" id="5_2qay8"]
 
 [sub_resource type="Animation" id="Animation_q6r6c"]
 resource_name = "player_out_of_bus"
@@ -42,7 +42,7 @@ _data = {
 &"player_out_of_bus": SubResource("Animation_q6r6c")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="get_off_bus_minigame" type="Node2D"]
 
 [node name="Button" type="Button" parent="." node_paths=PackedStringArray("node", "getOffBusAnim")]
 offset_left = 1311.0
@@ -50,14 +50,14 @@ offset_top = 143.0
 offset_right = 1782.0
 offset_bottom = 293.0
 text = "get off the bus!!"
-script = ExtResource("1_c3wlw")
+script = ExtResource("1_u8ire")
 node = NodePath("../Player")
 getOffBusAnim = NodePath("../AnimationPlayer")
 
 [node name="TimerToDoorOpen" type="Timer" parent="." node_paths=PackedStringArray("slider")]
 wait_time = 1.047
 one_shot = true
-script = ExtResource("2_0hol4")
+script = ExtResource("2_l08dc")
 slider = NodePath("HSlider")
 
 [node name="MissedText" type="Label" parent="TimerToDoorOpen"]
@@ -80,13 +80,13 @@ editable = false
 
 [node name="Player" type="Sprite2D" parent="."]
 position = Vector2(960, 500)
-texture = ExtResource("2_0e48y")
+texture = ExtResource("3_d0q14")
 
 [node name="Bus" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(955, 418)
-texture = ExtResource("4_q6r6c")
-script = ExtResource("4_0hol4")
+texture = ExtResource("4_pqf1f")
+script = ExtResource("5_2qay8")
 crowdedness = 0.07
 
 [node name="TimerToStop" type="Timer" parent="."]
