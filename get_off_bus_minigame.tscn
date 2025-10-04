@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bo7rdnbe33rum" path="res://get_off_bus_minigame.gd" id="1_u8ire"]
 [ext_resource type="Script" uid="uid://ewoigt3f7kqv" path="res://doortimer.gd" id="2_l08dc"]
-[ext_resource type="Texture2D" uid="uid://ci5ef1cau4niu" path="res://icon.svg" id="3_d0q14"]
+[ext_resource type="Texture2D" uid="uid://dui56fowalicm" path="res://assets/player.png" id="3_u8ire"]
 [ext_resource type="Texture2D" uid="uid://cu4ry7pb31pnn" path="res://assets/pink.png" id="4_l08dc"]
 [ext_resource type="Texture2D" uid="uid://dhshflediw7je" path="res://assets/blue.png" id="4_pqf1f"]
 [ext_resource type="Script" uid="uid://cfpf2m0i0ki58" path="res://bus.gd" id="5_2qay8"]
@@ -50,16 +50,13 @@ _data = {
 [node name="get_off_bus_minigame" type="Node2D"]
 script = ExtResource("1_u8ire")
 
-[node name="Button" type="Button" parent="." node_paths=PackedStringArray("node", "getOffBusAnim", "thanksBubble")]
+[node name="Button" type="Button" parent="."]
 offset_left = 1311.0
 offset_top = 143.0
 offset_right = 1782.0
 offset_bottom = 293.0
 text = "get off the bus!!"
 script = ExtResource("1_u8ire")
-node = NodePath("../Player")
-getOffBusAnim = NodePath("../AnimationPlayer")
-thanksBubble = NodePath("../Player/Thanks Bubble")
 
 [node name="Timer" type="Timer" parent="Button"]
 wait_time = 0.25
