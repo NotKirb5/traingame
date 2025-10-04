@@ -91,7 +91,8 @@ editable = false
 
 [node name="Player" type="Sprite2D" parent="."]
 position = Vector2(960, 500)
-texture = ExtResource("3_d0q14")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_u8ire")
 
 [node name="Thanks Bubble" type="Sprite2D" parent="Player"]
 visible = false

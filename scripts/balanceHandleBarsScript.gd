@@ -21,8 +21,8 @@ signal game_over(reason: String)	# "fell" (red too long) or "timeout"
 var time_outside_threshold: float = 0.0
 var was_outside_last_frame: bool = false
 var stopped: bool = false
-var goodSprite: String = "res://assets/green.png"           
-var badSprite: String = "res://assets/red.png"
+var goodSprite: String = "res://assets/greens.png"           
+var badSprite: String = "res://assets/reds.png"
 
 var startPos: Vector2
 var velocityOnX: float = 0.0
@@ -122,7 +122,7 @@ func _stop_movement_with_reason(reason: String):
 	stopped = true
 	velocityOnX = 0.0
 	game_over_reason = reason
-	emit_signal("game_over", reason)
+	gman.endgame('You fell down :(')
 	print("Game Over: %s" % reason)
 
 func get_time_outside_threshold() -> float:
