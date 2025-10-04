@@ -1,13 +1,8 @@
 extends Node2D
 
-
-
-
-
-
+@onready var resultlabel = $reason
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(ord(gman.currentStation))
 	pass # Replace with function body.
 
 
@@ -15,6 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_button_pressed() -> void:
-	gman.startgame()
+func setreason(reson:String) -> void:
+	resultlabel.text = reson
