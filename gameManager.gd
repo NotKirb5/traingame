@@ -4,8 +4,10 @@ var currentStation = 'A'
 var destinationStation = 'C'
 
 var games = {
-	"res://testgame.tscn": 'A test game for us'
+	"res://testgame.tscn": 'A test game for us',
+	"res://mingames/balanceHandleBars.tscn":'Use A and D to balence yourself'
 }
+
 @onready var hud = preload('res://hud.tscn')
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +19,7 @@ func _process(delta: float) -> void:
 	pass
 
 func startgame():
+	print(len(games.keys())-1)
 	var randomkey = games.keys()[randi_range(0,len(games.keys())-1)]
 	get_tree().change_scene_to_file(randomkey)
 	var inst = hud.instantiate()
@@ -27,7 +30,11 @@ func startgame():
 
 
 func newgame():
+	get_tree().change_scene_to_file("res://get_off_bus_minigame.tscn")
 	get_tree().get_first_node_in_group('hud').queue_free()
+
+
+func between():
 	get_tree().change_scene_to_file("res://inbetween.tscn")
 	
 	var stations = []
@@ -47,10 +54,3 @@ func endgame(reason:String)->void:
 	if hud != null:
 		hud.queue_free()
 	get_tree().current_scene.setreason(reason)
-
-
-func newstation()->void:
-	
-	get_tree().get_first_node_in_group('hud').queue_free()
-	
-	get_tree().change_scene_to_file("res://inbetween.tscn")

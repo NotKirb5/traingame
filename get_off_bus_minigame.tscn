@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bo7rdnbe33rum" path="res://get_off_bus_minigame.gd" id="1_u8ire"]
 [ext_resource type="Script" uid="uid://ewoigt3f7kqv" path="res://doortimer.gd" id="2_l08dc"]
-[ext_resource type="Texture2D" uid="uid://ci5ef1cau4niu" path="res://icon.svg" id="3_d0q14"]
+[ext_resource type="Texture2D" uid="uid://dui56fowalicm" path="res://assets/player.png" id="3_u8ire"]
 [ext_resource type="Texture2D" uid="uid://dhshflediw7je" path="res://assets/blue.png" id="4_pqf1f"]
 [ext_resource type="Script" uid="uid://cfpf2m0i0ki58" path="res://bus.gd" id="5_2qay8"]
 
@@ -78,7 +78,8 @@ editable = false
 
 [node name="Player" type="Sprite2D" parent="."]
 position = Vector2(960, 500)
-texture = ExtResource("3_d0q14")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_u8ire")
 
 [node name="Bus" type="Sprite2D" parent="."]
 z_index = -1

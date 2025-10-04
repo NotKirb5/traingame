@@ -27,7 +27,7 @@ func _on_button_pressed() -> void:
 		offBus = true
 		stoptimer.paused = true
 		await getOffBusAnim.animation_finished
-		print('hi')
+		gman.between()
 
 
 func _on_timer_to_stop_timeout() -> void:
