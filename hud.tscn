@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0q57g73bp1cx"]
+
+[ext_resource type="Script" uid="uid://ke5fcg3jmil1" path="res://hud.gd" id="1_37p78"]
+
+[node name="hud" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_37p78")
+
+[node name="destinationlabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "Destination: A"
+
+[node name="currentlabel" type="Label" parent="."]
+offset_left = 1635.0
+offset_top = 2.0
+offset_right = 1918.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 32
+text = "Current Station: F"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_right = 1919.0
+offset_bottom = 1077.0

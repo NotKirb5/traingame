@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bda5t2gcjvbh4"]
+
+[node name="testgame" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 519.0
+offset_top = 245.0
+offset_right = 625.0
+offset_bottom = 268.0
+text = "WOOW GAME"
