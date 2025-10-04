@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6sjienfug7r"]
+[gd_scene load_steps=11 format=3 uid="uid://b6sjienfug7r"]
 
 [ext_resource type="Script" uid="uid://bo7rdnbe33rum" path="res://get_off_bus_minigame.gd" id="1_u8ire"]
 [ext_resource type="Script" uid="uid://ewoigt3f7kqv" path="res://doortimer.gd" id="2_l08dc"]
-[ext_resource type="Texture2D" uid="uid://dui56fowalicm" path="res://assets/player.png" id="3_u8ire"]
+[ext_resource type="Texture2D" uid="uid://ci5ef1cau4niu" path="res://icon.svg" id="3_d0q14"]
+[ext_resource type="Texture2D" uid="uid://cu4ry7pb31pnn" path="res://assets/pink.png" id="4_l08dc"]
 [ext_resource type="Texture2D" uid="uid://dhshflediw7je" path="res://assets/blue.png" id="4_pqf1f"]
 [ext_resource type="Script" uid="uid://cfpf2m0i0ki58" path="res://bus.gd" id="5_2qay8"]
 
@@ -36,21 +37,33 @@ tracks/0/keys = {
 "values": [Vector2(960, 500), Vector2(960, 750)]
 }
 
+[sub_resource type="Animation" id="Animation_d0q14"]
+resource_name = "thanks"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d21ai"]
 _data = {
 &"RESET": SubResource("Animation_kdubu"),
-&"player_out_of_bus": SubResource("Animation_q6r6c")
+&"player_out_of_bus": SubResource("Animation_q6r6c"),
+&"thanks": SubResource("Animation_d0q14")
 }
 
 [node name="get_off_bus_minigame" type="Node2D"]
 script = ExtResource("1_u8ire")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." node_paths=PackedStringArray("node", "getOffBusAnim", "thanksBubble")]
 offset_left = 1311.0
 offset_top = 143.0
 offset_right = 1782.0
 offset_bottom = 293.0
 text = "get off the bus!!"
+script = ExtResource("1_u8ire")
+node = NodePath("../Player")
+getOffBusAnim = NodePath("../AnimationPlayer")
+thanksBubble = NodePath("../Player/Thanks Bubble")
+
+[node name="Timer" type="Timer" parent="Button"]
+wait_time = 0.25
+one_shot = true
 
 [node name="TimerToDoorOpen" type="Timer" parent="." node_paths=PackedStringArray("slider")]
 wait_time = 1.047
@@ -81,8 +94,22 @@ position = Vector2(960, 500)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_u8ire")
 
+[node name="Thanks Bubble" type="Sprite2D" parent="Player"]
+visible = false
+position = Vector2(50, -50)
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("4_l08dc")
+
+[node name="Label" type="Label" parent="Player/Thanks Bubble"]
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 144.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 80
+text = "Thanks!!!"
+
 [node name="Bus" type="Sprite2D" parent="."]
-z_index = -1
+z_index = -2
 position = Vector2(955, 418)
 texture = ExtResource("4_pqf1f")
 script = ExtResource("5_2qay8")
