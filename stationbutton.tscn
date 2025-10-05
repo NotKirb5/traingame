@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cscy4bumwkv5y"]
+[gd_scene load_steps=3 format=3 uid="uid://cscy4bumwkv5y"]
 
-[ext_resource type="Texture2D" uid="uid://dhshflediw7je" path="res://assets/blue.png" id="1_jr2mw"]
+[ext_resource type="Texture2D" uid="uid://d0kjur5h8xuqd" path="res://assets/button_up_square.png" id="1_jr2mw"]
+[ext_resource type="Script" uid="uid://bosh86ktb36rw" path="res://stationbutton.gd" id="2_8yrch"]
 
 [node name="stationbutton" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(2.4999998, 2.4999998)
 texture = ExtResource("1_jr2mw")
+script = ExtResource("2_8yrch")

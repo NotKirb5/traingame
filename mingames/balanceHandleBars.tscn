@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhm8glnqjd50a"]
 
 [ext_resource type="Script" uid="uid://fkhry30btwe3" path="res://scripts/balanceHandleBarsScript.gd" id="1_w8ij5"]
-[ext_resource type="Texture2D" uid="uid://ci5ef1cau4niu" path="res://icon.svg" id="2_ct06j"]
-[ext_resource type="Texture2D" uid="uid://cu4ry7pb31pnn" path="res://assets/pink.png" id="3_rwcvh"]
+[ext_resource type="Texture2D" uid="uid://dui56fowalicm" path="res://assets/player.png" id="2_rwcvh"]
+[ext_resource type="Texture2D" uid="uid://cj1j1or63uns6" path="res://assets/trainbg.png" id="3_rwcvh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qduct"]
 radius = 34.0
@@ -21,20 +21,13 @@ shape = SubResource("CapsuleShape2D_qduct")
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
 z_index = 1
-texture = ExtResource("2_ct06j")
+position = Vector2(0, 15.999992)
+scale = Vector2(1, 1.5040001)
+texture = ExtResource("2_rwcvh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -539.0
-offset_right = 960.0
-offset_bottom = 541.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Trainbg" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.24313726)
+position = Vector2(-2, 0)
 texture = ExtResource("3_rwcvh")

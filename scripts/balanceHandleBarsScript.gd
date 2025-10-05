@@ -21,8 +21,8 @@ signal game_over(reason: String)	# "fell" (red too long) or "timeout"
 var time_outside_threshold: float = 0.0
 var was_outside_last_frame: bool = false
 var stopped: bool = false
-var goodSprite: String = "res://assets/green.png"           
-var badSprite: String = "res://assets/red.png"
+var goodSprite: String = "res://assets/player.png"           
+var badSprite: String = "res://assets/tiltedplayer.png"
 
 var startPos: Vector2
 var velocityOnX: float = 0.0
@@ -102,11 +102,16 @@ func _process(delta):
 
 	# --- Visual feedback ---
 	if absf(dirOnX) < center_threshold:
-		sprite.scale = Vector2(0.5, 0.5)
+		#sprite.scale = Vector2(0.5, 0.5)
 		sprite.texture = load(goodSprite)
 	else:
-		sprite.scale = Vector2(0.5, 0.5)
+		#sprite.scale = Vector2(0.5, 0.5)
+		print('your outside ',global_position.x)
 		sprite.texture = load(badSprite)
+		if global_position.x < 0:
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
 
 
 func _pick_new_drift():
@@ -122,7 +127,7 @@ func _stop_movement_with_reason(reason: String):
 	stopped = true
 	velocityOnX = 0.0
 	game_over_reason = reason
-	emit_signal("game_over", reason)
+	gman.endgame('You fell down :(')
 	print("Game Over: %s" % reason)
 
 func get_time_outside_threshold() -> float:

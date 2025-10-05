@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	if timer.time_left != 0:
 		timerlabel.text = str(int(timer.time_left + 1))
 	
-	if waittimer.time_left != 0 and Input.is_action_just_pressed('getoff'):
+	if waittimer.time_left != 0 and Input.is_action_just_pressed('space_click'):
 		if gman.currentStation == gman.destinationStation:
 			gman.newgame()
 		else:
