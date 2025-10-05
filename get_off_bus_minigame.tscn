@@ -56,7 +56,6 @@ offset_top = 143.0
 offset_right = 1782.0
 offset_bottom = 293.0
 text = "get off the bus!!"
-script = ExtResource("1_u8ire")
 
 [node name="Timer" type="Timer" parent="Button"]
 wait_time = 0.25
