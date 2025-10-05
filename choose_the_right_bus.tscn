@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbr4xbkrbb5yf"]
+
+[ext_resource type="Texture2D" uid="uid://dgo0lfdu1sjd2" path="res://assets/bus_right.png" id="1_8phi6"]
+[ext_resource type="Script" uid="uid://cftstqvkegru8" path="res://chosenbus.gd" id="2_8phi6"]
+[ext_resource type="Texture2D" uid="uid://0hg8n3ub1xbg" path="res://assets/bus_left.png" id="3_eetu0"]
+
+[sub_resource type="Animation" id="Animation_v5t6n"]
+resource_name = "busR"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(3.2490141, 1),
+"update": 0,
+"values": [Vector2(1423, 619.00006), Vector2(2500, 619)]
+}
+
+[sub_resource type="Animation" id="Animation_h0non"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1423, 619.00006)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../busL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(495, 619.00006)]
+}
+
+[sub_resource type="Animation" id="Animation_eetu0"]
+resource_name = "busL"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../busL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(4.594798, 1),
+"update": 0,
+"values": [Vector2(495, 619.00006), Vector2(-650, 619)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0383m"]
+_data = {
+&"RESET": SubResource("Animation_h0non"),
+&"busL": SubResource("Animation_eetu0"),
+&"busR": SubResource("Animation_v5t6n")
+}
+
+[node name="choose the right bus" type="Node2D"]
+
+[node name="busR" type="Sprite2D" parent="."]
+position = Vector2(1423, 619.00006)
+scale = Vector2(14.125001, 14.125001)
+texture = ExtResource("1_8phi6")
+
+[node name="Button" type="Button" parent="busR" node_paths=PackedStringArray("busAnim")]
+offset_left = -24.0
+offset_top = -5.8053145
+offset_right = 23.079636
+offset_bottom = 5.309729
+script = ExtResource("2_8phi6")
+isCorrectBus = true
+busAnim = NodePath("../../AnimationPlayer")
+
+[node name="busL" type="Sprite2D" parent="."]
+position = Vector2(495, 619.00006)
+scale = Vector2(14.125001, 14.125001)
+texture = ExtResource("3_eetu0")
+
+[node name="Button" type="Button" parent="busL" node_paths=PackedStringArray("busAnim")]
+offset_left = -24.0
+offset_top = -5.8053145
+offset_right = 23.079636
+offset_bottom = 5.309729
+script = ExtResource("2_8phi6")
+isCorrectBus = true
+busAnim = NodePath("../../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../busR")
+libraries = {
+&"": SubResource("AnimationLibrary_0383m")
+}
