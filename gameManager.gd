@@ -4,8 +4,8 @@ var currentStation = 'A'
 var destinationStation = 'C'
 
 var games = {
-	"res://testgame.tscn": 'A test game for us',
-	"res://mingames/balanceHandleBars.tscn":'Use A and D to balence yourself'
+	"res://mingames/balanceHandleBars.tscn":'Use A and D to balence yourself',
+	'res://adminigame.tscn':'Click to get rid of the ads'
 }
 
 @onready var hud = preload('res://hud.tscn')
