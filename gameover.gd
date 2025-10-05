@@ -12,3 +12,7 @@ func _process(delta: float) -> void:
 
 func setreason(reson:String) -> void:
 	resultlabel.text = reson
+
+
+func _on_button_pressed() -> void:
+	gman.startgame()

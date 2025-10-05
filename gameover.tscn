@@ -22,3 +22,13 @@ offset_bottom = 611.0
 theme_override_font_sizes/font_size = 50
 text = "You Ran Over a Familly of Four"
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 633.0
+offset_top = 717.0
+offset_right = 1297.0
+offset_bottom = 923.0
+theme_override_font_sizes/font_size = 60
+text = "Try Again"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

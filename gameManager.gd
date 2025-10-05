@@ -21,6 +21,12 @@ func _process(delta: float) -> void:
 
 func startgame():
 	randomize()
+	var stations = []
+	for i in range(ord('A'),ord('G') + 1):
+		stations.append(char(i))
+	stations.erase(currentStation)
+	print(stations)
+	destinationStation = stations[randi_range(0,len(stations)-1)]
 	var randomkey = games.keys()[randi_range(0,len(games.keys())-1)]
 	get_tree().change_scene_to_file(randomkey)
 	var inst = hud.instantiate()
@@ -36,7 +42,7 @@ func newgame():
 
 
 func between():
-	get_tree().change_scene_to_file("res://inbetween.tscn")
+	get_tree().change_scene_to_file("res://choose_the_right_bus.tscn")
 	
 	var stations = []
 	for i in range(ord('A'),ord('G') + 1):
@@ -47,6 +53,8 @@ func between():
 	await get_tree().scene_changed
 	get_tree().current_scene.init()
 	
+
+
 
 func endgame(reason:String)->void:
 	get_tree().change_scene_to_file("res://gameover.tscn")
