@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://lld7iqx21fr"]
+
+[ext_resource type="PackedScene" uid="uid://cq1nrijqpgird" path="res://scenes/enemy.tscn" id="1_5ovsw"]
+[ext_resource type="Texture2D" uid="uid://ijuveymtmk58" path="res://kenney_space-shooter-redux/PNG/Enemies/enemyRed1.png" id="2_qmvpy"]
+
+[node name="diver_enemy" instance=ExtResource("1_5ovsw")]
+speed = 400
+hp = 1
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_qmvpy")
