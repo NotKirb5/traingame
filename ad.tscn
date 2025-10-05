@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dr8ylhf1rtj5"]
 
-[ext_resource type="Script" uid="uid://c7jq6hrktpulh" path="res://ad.gd" id="1_nyk22"]
-[ext_resource type="Texture2D" uid="uid://d0ekpc32y35kv" path="res://assets/ad.png" id="1_shbfr"]
+[ext_resource type="Script" path="res://ad.gd" id="1_nyk22"]
+[ext_resource type="Texture2D" uid="uid://b3aq22ciwfuki" path="res://assets/adnew.png" id="2_nyk22"]
 
 [node name="ad" type="Button" groups=["ad"]]
 z_index = 100
@@ -13,6 +13,7 @@ script = ExtResource("1_nyk22")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(250, 250)
-texture = ExtResource("1_shbfr")
+scale = Vector2(31.250002, 31.250002)
+texture = ExtResource("2_nyk22")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

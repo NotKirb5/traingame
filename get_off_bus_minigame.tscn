@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cu4ry7pb31pnn" path="res://assets/pink.png" id="4_l08dc"]
 [ext_resource type="Script" uid="uid://cfpf2m0i0ki58" path="res://bus.gd" id="5_2qay8"]
 [ext_resource type="Texture2D" uid="uid://dgo0lfdu1sjd2" path="res://assets/bus_right.png" id="5_l08dc"]
-[ext_resource type="Texture2D" uid="uid://ckcbml8yy2tm7" path="res://assets/getoffbusb.png" id="7_d0q14"]
 
 [sub_resource type="Animation" id="Animation_kdubu"]
 tracks/0/type = "value"
@@ -65,12 +64,12 @@ _data = {
 script = ExtResource("1_u8ire")
 
 [node name="Getoffbusb" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.5254902)
 position = Vector2(960, 540)
-texture = ExtResource("7_d0q14")
+scale = Vector2(22.34375, 22.343752)
+texture = ExtResource("2_d0q14")
 
 [node name="Bus" type="Sprite2D" parent="."]
-position = Vector2(989, 349)
+position = Vector2(975, 469.99997)
 scale = Vector2(31.375002, 31.375002)
 texture = ExtResource("5_l08dc")
 script = ExtResource("5_2qay8")
@@ -148,5 +147,5 @@ libraries = {
 [connection signal="timeout" from="TimerToDoorOpen" to="Button" method="_on_timeout"]
 [connection signal="timeout" from="TimerToDoorOpen" to="TimerToDoorOpen/MissedText" method="set_visible" binds= [true]]
 [connection signal="timeout" from="TimerToStop" to="." method="_on_timer_to_stop_timeout"]
-[connection signal="timeout" from="TimerToStop" to="Button" method="_on_stop"]
 [connection signal="timeout" from="TimerToStop" to="Bus" method="_stop"]
+[connection signal="timeout" from="TimerToStop" to="Button" method="_on_stop"]
