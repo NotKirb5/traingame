@@ -19,14 +19,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func startgame():
-	randomize()
+func startover()->void:
 	var stations = []
 	for i in range(ord('A'),ord('G') + 1):
 		stations.append(char(i))
 	stations.erase(currentStation)
 	print(stations)
 	destinationStation = stations[randi_range(0,len(stations)-1)]
+	startgame()
+func startgame():
+	randomize()
+	
 	var randomkey = games.keys()[randi_range(0,len(games.keys())-1)]
 	get_tree().change_scene_to_file(randomkey)
 	var inst = hud.instantiate()
