@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh7phuab2lhxn"]
+[gd_scene load_steps=5 format=3 uid="uid://dh7phuab2lhxn"]
 
-[ext_resource type="Script" path="res://mainscene.gd" id="1_wtdyi"]
+[ext_resource type="Script" uid="uid://bowgmlbfep072" path="res://mainscene.gd" id="1_wtdyi"]
+[ext_resource type="Texture2D" uid="uid://cirnlovjkm2lx" path="res://assets/button_up.png" id="2_dn5c8"]
+[ext_resource type="Texture2D" uid="uid://dh0l7mqetw4s8" path="res://assets/button_down.png" id="3_5lfti"]
+[ext_resource type="Script" uid="uid://ca4gydo6vihtr" path="res://startbutton.gd" id="4_5lfti"]
 
 [node name="mainscene" type="Node2D" groups=["main"]]
 script = ExtResource("1_wtdyi")
@@ -9,19 +12,28 @@ script = ExtResource("1_wtdyi")
 offset_right = 1923.0
 offset_bottom = 1075.0
 
-[node name="Button" type="Button" parent="."]
-offset_left = 827.0
-offset_top = 494.0
-offset_right = 1131.0
-offset_bottom = 615.0
-text = "Start Game"
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 690.0
+offset_top = 591.0
+offset_right = 1230.0
+offset_bottom = 834.0
+texture_normal = ExtResource("2_dn5c8")
+texture_pressed = ExtResource("3_5lfti")
+stretch_mode = 0
+script = ExtResource("4_5lfti")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 643.0
-offset_top = 63.0
-offset_right = 1318.0
-offset_bottom = 200.0
+offset_left = 841.0
+offset_top = 459.0
+offset_right = 1076.0
+offset_bottom = 596.0
+theme_override_font_sizes/font_size = 100
+text = "Start"
+
+[node name="Title" type="Label" parent="."]
+offset_left = 618.0
+offset_top = 185.0
+offset_right = 1252.0
+offset_bottom = 322.0
 theme_override_font_sizes/font_size = 100
 text = "Bus Terminal"
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
