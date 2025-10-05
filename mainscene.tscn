@@ -14,9 +14,9 @@ offset_bottom = 1075.0
 
 [node name="TextureButton" type="TextureButton" parent="."]
 offset_left = 690.0
-offset_top = 319.0
+offset_top = 591.0
 offset_right = 1230.0
-offset_bottom = 562.0
+offset_bottom = 834.0
 texture_normal = ExtResource("2_dn5c8")
 texture_pressed = ExtResource("3_5lfti")
 stretch_mode = 0
@@ -24,8 +24,16 @@ script = ExtResource("4_5lfti")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 841.0
-offset_top = 187.0
+offset_top = 459.0
 offset_right = 1076.0
-offset_bottom = 324.0
+offset_bottom = 596.0
 theme_override_font_sizes/font_size = 100
 text = "Start"
+
+[node name="Title" type="Label" parent="."]
+offset_left = 618.0
+offset_top = 185.0
+offset_right = 1252.0
+offset_bottom = 322.0
+theme_override_font_sizes/font_size = 100
+text = "Bus Terminal"

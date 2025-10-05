@@ -55,6 +55,7 @@ offset_left = 1311.0
 offset_top = 143.0
 offset_right = 1782.0
 offset_bottom = 293.0
+theme_override_font_sizes/font_size = 50
 text = "get off the bus!!"
 
 [node name="Timer" type="Timer" parent="Button"]
