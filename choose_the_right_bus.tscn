@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbr4xbkrbb5yf"]
+[gd_scene load_steps=6 format=3 uid="uid://cbr4xbkrbb5yf"]
 
 [ext_resource type="Texture2D" uid="uid://dgo0lfdu1sjd2" path="res://assets/bus_right.png" id="1_8phi6"]
+[ext_resource type="Script" uid="uid://cmeh5wvra6cjw" path="res://choose_the_right_bus.gd" id="1_h0non"]
 [ext_resource type="Script" uid="uid://cftstqvkegru8" path="res://chosenbus.gd" id="2_8phi6"]
 [ext_resource type="Texture2D" uid="uid://0hg8n3ub1xbg" path="res://assets/bus_left.png" id="3_eetu0"]
 [ext_resource type="Texture2D" uid="uid://ddg3mng54n7p5" path="res://assets/bus_choosing_background.png" id="4_v5t6n"]
 
 [node name="choose the right bus" type="Node2D"]
+script = ExtResource("1_h0non")
 
 [node name="busR" type="Sprite2D" parent="."]
 z_index = 1
@@ -21,7 +23,6 @@ offset_bottom = 5.309729
 focus_mode = 0
 flat = true
 script = ExtResource("2_8phi6")
-isCorrectBus = true
 metadata/_edit_use_anchors_ = true
 
 [node name="busL" type="Sprite2D" parent="."]
@@ -38,9 +39,24 @@ offset_bottom = 5.309729
 focus_mode = 0
 flat = true
 script = ExtResource("2_8phi6")
-isCorrectBus = true
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(1120, 556)
+position = Vector2(1111, 545.00006)
 scale = Vector2(23.104166, 16.999998)
 texture = ExtResource("4_v5t6n")
+
+[node name="lineinfo" type="Label" parent="."]
+offset_left = 736.0
+offset_top = 25.0
+offset_right = 1318.0
+offset_bottom = 298.0
+theme_override_font_sizes/font_size = 200
+text = "A to G"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 714.0
+offset_top = 799.0
+offset_right = 1307.0
+offset_bottom = 936.0
+theme_override_font_sizes/font_size = 100
+text = "Left or Right"
