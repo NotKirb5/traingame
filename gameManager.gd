@@ -5,7 +5,8 @@ var destinationStation = 'C'
 
 var games = {
 	"res://mingames/balanceHandleBars.tscn":'Use A and D to balence yourself',
-	'res://adminigame.tscn':'Click to get rid of the ads'
+	'res://adminigame.tscn':'Click to get rid of the ads',
+	'res://fightgame.tscn':'Press E to beat the shit out of that guy'
 }
 
 @onready var hud = preload('res://hud.tscn')
@@ -19,7 +20,7 @@ func _process(delta: float) -> void:
 	pass
 
 func startgame():
-	print(len(games.keys())-1)
+	randomize()
 	var randomkey = games.keys()[randi_range(0,len(games.keys())-1)]
 	get_tree().change_scene_to_file(randomkey)
 	var inst = hud.instantiate()
