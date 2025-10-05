@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5y1wwgj28fmt"]
+
+[ext_resource type="Script" uid="uid://ddire1tbtxjju" path="res://adminigame.gd" id="1_w4qd8"]
+[ext_resource type="Texture2D" uid="uid://cyxclm40w702t" path="res://assets/adbg.png" id="2_gh4c8"]
+
+[node name="adminigame" type="Node2D"]
+script = ExtResource("1_w4qd8")
+
+[node name="addcooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Adbg" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.5686275)
+position = Vector2(960, 540)
+texture = ExtResource("2_gh4c8")
+
+[connection signal="timeout" from="addcooldown" to="." method="_on_addcooldown_timeout"]
