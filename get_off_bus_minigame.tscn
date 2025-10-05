@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://ewoigt3f7kqv" path="res://doortimer.gd" id="2_l08dc"]
 [ext_resource type="Texture2D" uid="uid://dui56fowalicm" path="res://assets/player.png" id="3_u8ire"]
 [ext_resource type="Texture2D" uid="uid://cu4ry7pb31pnn" path="res://assets/pink.png" id="4_l08dc"]
-[ext_resource type="Texture2D" uid="uid://dhshflediw7je" path="res://assets/blue.png" id="4_pqf1f"]
 [ext_resource type="Script" uid="uid://cfpf2m0i0ki58" path="res://bus.gd" id="5_2qay8"]
+[ext_resource type="Texture2D" uid="uid://dgo0lfdu1sjd2" path="res://assets/bus_right.png" id="5_l08dc"]
 
 [sub_resource type="Animation" id="Animation_kdubu"]
 length = 0.001
@@ -106,8 +106,9 @@ text = "Thanks!!!"
 
 [node name="Bus" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(955, 418)
-texture = ExtResource("4_pqf1f")
+position = Vector2(947.99994, 450)
+scale = Vector2(31.375002, 31.375002)
+texture = ExtResource("5_l08dc")
 script = ExtResource("5_2qay8")
 crowdedness = 0.07
 
