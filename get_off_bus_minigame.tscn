@@ -88,17 +88,16 @@ wait_time = 0.25
 one_shot = true
 
 [node name="TimerToDoorOpen" type="Timer" parent="." node_paths=PackedStringArray("slider")]
-wait_time = 1.047
 one_shot = true
 script = ExtResource("2_l08dc")
 slider = NodePath("HSlider")
 
 [node name="MissedText" type="Label" parent="TimerToDoorOpen"]
 visible = false
-offset_left = 1338.0
-offset_top = 376.0
-offset_right = 1756.0
-offset_bottom = 456.0
+offset_left = 760.0
+offset_top = 814.0
+offset_right = 1178.0
+offset_bottom = 894.0
 theme_override_font_sizes/font_size = 56
 text = "Missed!"
 horizontal_alignment = 1
@@ -132,7 +131,6 @@ theme_override_font_sizes/font_size = 80
 text = "Thanks!!!"
 
 [node name="TimerToStop" type="Timer" parent="."]
-wait_time = 3.0
 one_shot = true
 autostart = true
 
