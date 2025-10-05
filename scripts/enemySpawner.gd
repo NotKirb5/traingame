@@ -2,8 +2,8 @@ extends Area2D
 
 @export var enemy_scene: PackedScene			# drag Enemy.tscn here
 @export var autostart: bool = true
-@export var spawn_interval: float = 1.0
-@export var max_alive: int = 10
+@export var spawn_interval: float = 0.7
+@export var max_alive: int = 999999
 
 @export var player_path: NodePath				# drag your Player node here
 @export var avoid_distance: float = 80.0		# minimum distance from player
@@ -34,6 +34,7 @@ func _ready():
 func _on_player_died():
 	print("Spawner: Player died, stopping all spawns!")
 	stop()
+	gman.endgame('You got slimed fool')
 
 func _on_timeout():
 	if _alive >= max_alive:

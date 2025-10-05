@@ -11,6 +11,7 @@ extends CanvasLayer
 @onready var waitbar = $Reds
 @onready var instuct = $spaceintruct
 @onready var stationtimer = $stationtimer
+@onready var stopsound = preload("res://assets/sound/Bus_Halt.mp3")
 var dir = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -62,6 +63,7 @@ func _on_stationtimer_timeout() -> void:
 	waittimer.start()
 	waitbar.show()
 	instuct.show()
+	sman.playsound(stopsound)
 	await waittimer.timeout
 	if gman.currentStation == gman.destinationStation:
 		gman.endgame('You Missed Your Stop.')

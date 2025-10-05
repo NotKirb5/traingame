@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://csde0cpudw7js"]
+[gd_scene load_steps=8 format=3 uid="uid://csde0cpudw7js"]
 
+[ext_resource type="Texture2D" uid="uid://f23g3kah14q4" path="res://assets/peoplebg.png" id="1_k8m1v"]
 [ext_resource type="Script" uid="uid://dphihvjd4yumi" path="res://scripts/dodgePplMov.gd" id="1_uw3n4"]
 [ext_resource type="Texture2D" uid="uid://dui56fowalicm" path="res://assets/player.png" id="2_8hnlu"]
-[ext_resource type="Texture2D" uid="uid://lm1lwm0dw4o5" path="res://assets/red.png" id="4_8hnlu"]
 [ext_resource type="Script" uid="uid://de3ipyer6kxfr" path="res://scripts/enemySpawner.gd" id="4_k8m1v"]
 [ext_resource type="PackedScene" uid="uid://cbdu8x17ihxvv" path="res://scripts/dodgeEnemy.tscn" id="5_0nat8"]
 
@@ -10,13 +10,14 @@
 radius = 4.1262126
 height = 24.774775
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uw3n4"]
-radius = 56.0357
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c42xf"]
 size = Vector2(1508, 847)
 
 [node name="DodgePeople" type="Node2D"]
+
+[node name="Peoplebg" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.5137255)
+texture = ExtResource("1_k8m1v")
 
 [node name="player" type="CharacterBody2D" parent="."]
 scale = Vector2(4.120001, 4.4399996)
@@ -31,17 +32,6 @@ scale = Vector2(0.043446597, 0.058251534)
 texture = ExtResource("2_8hnlu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["end"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["end"]]
-position = Vector2(694, -411)
-shape = SubResource("CircleShape2D_uw3n4")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(694, -411)
-scale = Vector2(0.248, 0.248)
-texture = ExtResource("4_8hnlu")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-132, -163)
