@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6sjienfug7r"]
+[gd_scene load_steps=12 format=3 uid="uid://b6sjienfug7r"]
 
 [ext_resource type="Script" uid="uid://bo7rdnbe33rum" path="res://get_off_bus_minigame.gd" id="1_u8ire"]
 [ext_resource type="Script" uid="uid://ewoigt3f7kqv" path="res://doortimer.gd" id="2_l08dc"]
 [ext_resource type="Texture2D" uid="uid://dui56fowalicm" path="res://assets/player.png" id="3_u8ire"]
 [ext_resource type="Texture2D" uid="uid://cu4ry7pb31pnn" path="res://assets/pink.png" id="4_l08dc"]
-[ext_resource type="Texture2D" uid="uid://dhshflediw7je" path="res://assets/blue.png" id="4_pqf1f"]
 [ext_resource type="Script" uid="uid://cfpf2m0i0ki58" path="res://bus.gd" id="5_2qay8"]
+[ext_resource type="Texture2D" uid="uid://dgo0lfdu1sjd2" path="res://assets/bus_right.png" id="5_l08dc"]
+[ext_resource type="Texture2D" uid="uid://ckcbml8yy2tm7" path="res://assets/getoffbusb.png" id="7_d0q14"]
 
 [sub_resource type="Animation" id="Animation_kdubu"]
 length = 0.001
@@ -50,12 +51,25 @@ _data = {
 [node name="get_off_bus_minigame" type="Node2D"]
 script = ExtResource("1_u8ire")
 
+[node name="Getoffbusb" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.5254902)
+position = Vector2(960, 540)
+texture = ExtResource("7_d0q14")
+
+[node name="Bus" type="Sprite2D" parent="."]
+position = Vector2(989, 349)
+scale = Vector2(31.375002, 31.375002)
+texture = ExtResource("5_l08dc")
+script = ExtResource("5_2qay8")
+crowdedness = 0.07
+
 [node name="Button" type="Button" parent="."]
-offset_left = 1311.0
-offset_top = 143.0
-offset_right = 1782.0
-offset_bottom = 293.0
-text = "get off the bus!!"
+offset_left = 1282.0
+offset_top = 807.0
+offset_right = 1753.0
+offset_bottom = 957.0
+theme_override_font_sizes/font_size = 50
+text = "Get off the bus!!"
 
 [node name="Timer" type="Timer" parent="Button"]
 wait_time = 0.25
@@ -78,10 +92,10 @@ text = "Missed!"
 horizontal_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="TimerToDoorOpen"]
-offset_left = 1258.0
-offset_top = 305.0
-offset_right = 1828.0
-offset_bottom = 370.0
+offset_left = 1240.0
+offset_top = 969.0
+offset_right = 1810.0
+offset_bottom = 1034.0
 step = 0.01
 editable = false
 
@@ -104,13 +118,6 @@ offset_bottom = 10.0
 theme_override_font_sizes/font_size = 80
 text = "Thanks!!!"
 
-[node name="Bus" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(955, 418)
-texture = ExtResource("4_pqf1f")
-script = ExtResource("5_2qay8")
-crowdedness = 0.07
-
 [node name="TimerToStop" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -121,11 +128,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_d21ai")
 }
 
+[connection signal="stop" from="Bus" to="TimerToDoorOpen" method="_on_stop"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="TimerToDoorOpen" to="." method="_on_timer_to_door_open_timeout"]
 [connection signal="timeout" from="TimerToDoorOpen" to="Button" method="_on_timeout"]
 [connection signal="timeout" from="TimerToDoorOpen" to="TimerToDoorOpen/MissedText" method="set_visible" binds= [true]]
-[connection signal="stop" from="Bus" to="TimerToDoorOpen" method="_on_stop"]
 [connection signal="timeout" from="TimerToStop" to="." method="_on_timer_to_stop_timeout"]
 [connection signal="timeout" from="TimerToStop" to="Button" method="_on_stop"]
 [connection signal="timeout" from="TimerToStop" to="Bus" method="_stop"]
