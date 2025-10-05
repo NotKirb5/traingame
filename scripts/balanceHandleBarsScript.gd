@@ -101,7 +101,7 @@ func _process(delta):
 		return
 
 	# --- Visual feedback ---
-	if absf(dirOnX) < center_threshold:
+	if not is_outside:
 		#sprite.scale = Vector2(0.5, 0.5)
 		sprite.texture = load(goodSprite)
 	else:

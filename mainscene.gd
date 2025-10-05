@@ -18,3 +18,7 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	gman.startgame()
+
+
+func _on_texture_button_pressed() -> void:
+	gman.startgame()
