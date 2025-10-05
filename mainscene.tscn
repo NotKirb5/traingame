@@ -21,3 +21,11 @@ texture_normal = ExtResource("2_dn5c8")
 texture_pressed = ExtResource("3_5lfti")
 stretch_mode = 0
 script = ExtResource("4_5lfti")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 841.0
+offset_top = 187.0
+offset_right = 1076.0
+offset_bottom = 324.0
+theme_override_font_sizes/font_size = 100
+text = "Start"
