@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm05deld518j4"]
+
+[ext_resource type="Script" uid="uid://g8o4ctnwxwyf" path="res://game.gd" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://p0fa7dct66jb" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cq1nrijqpgird" path="res://scenes/enemy.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://lld7iqx21fr" path="res://scenes/diver_enemy.tscn" id="4_lbhrr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(583, 20)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lnu2h")
+enemy_scenes = Array[PackedScene]([ExtResource("3_lnu2h"), ExtResource("4_lbhrr")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="player" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(281, 798)
+
+[node name="PlayerSpawnPos" type="Marker2D" parent="player"]
+position = Vector2(270, 850)
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(269.5, 948)
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
