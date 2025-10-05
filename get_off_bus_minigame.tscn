@@ -1,29 +1,32 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6sjienfug7r"]
+[gd_scene load_steps=13 format=3 uid="uid://b6sjienfug7r"]
 
 [ext_resource type="Script" uid="uid://bo7rdnbe33rum" path="res://get_off_bus_minigame.gd" id="1_u8ire"]
+[ext_resource type="Texture2D" uid="uid://ddg3mng54n7p5" path="res://assets/bus_choosing_background.png" id="2_d0q14"]
 [ext_resource type="Script" uid="uid://ewoigt3f7kqv" path="res://doortimer.gd" id="2_l08dc"]
-[ext_resource type="Texture2D" uid="uid://dui56fowalicm" path="res://assets/player.png" id="3_u8ire"]
+[ext_resource type="Texture2D" uid="uid://d2qeyf3fsi3ll" path="res://assets/player_new.png" id="3_l08dc"]
 [ext_resource type="Texture2D" uid="uid://cu4ry7pb31pnn" path="res://assets/pink.png" id="4_l08dc"]
 [ext_resource type="Script" uid="uid://cfpf2m0i0ki58" path="res://bus.gd" id="5_2qay8"]
 [ext_resource type="Texture2D" uid="uid://dgo0lfdu1sjd2" path="res://assets/bus_right.png" id="5_l08dc"]
 
+[sub_resource type="Theme" id="Theme_l08dc"]
+
 [sub_resource type="Animation" id="Animation_kdubu"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Player:position")
+tracks/0/path = NodePath("Player:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(960, 500)]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_q6r6c"]
 resource_name = "player_out_of_bus"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -35,6 +38,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(960, 500), Vector2(960, 750)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.4822, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_d0q14"]
@@ -49,6 +64,12 @@ _data = {
 
 [node name="get_off_bus_minigame" type="Node2D"]
 script = ExtResource("1_u8ire")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(988.99994, 520)
+scale = Vector2(21.75, 21.75)
+texture = ExtResource("2_d0q14")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 1311.0
@@ -83,13 +104,15 @@ offset_left = 1258.0
 offset_top = 305.0
 offset_right = 1828.0
 offset_bottom = 370.0
+theme = SubResource("Theme_l08dc")
 step = 0.01
 editable = false
 
 [node name="Player" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 500)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_u8ire")
+scale = Vector2(16.875, 16.875)
+texture = ExtResource("3_l08dc")
 
 [node name="Thanks Bubble" type="Sprite2D" parent="Player"]
 visible = false
